@@ -11,4 +11,4 @@ end
 
 puts 3.factorial
 
-# Au passage, Ruby se fiche pas mal des limites classiques sur les entiers. Remplacer 3 par 10000.
+# Au passage, Ruby se fiche pas mal des limites classiques sur les entiers. Remplacer 3 par 100.
