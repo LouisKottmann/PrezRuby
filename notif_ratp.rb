@@ -4,9 +4,9 @@ require 'open-uri'
 
 def send_notif(title, text)
 	GNTP.notify({
-		:app_name => "Baboon",
-		:title => title,
-		:text => text
+		app_name: "Baboon",
+		title: title,
+		text: text
 	})
 end
 
