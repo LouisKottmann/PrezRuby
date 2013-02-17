@@ -1,3 +1,4 @@
+# **********************
 # * Exception handling *
 def divide(numerator, denominator)
    puts numerator / denominator
@@ -10,6 +11,7 @@ divide 5, 0
 divide 5, 2
 #-> 2
 
+# ********************
 # * Boolean coercion *
 def gimme(trinket)
    puts "take this #{trinket}" if trinket
@@ -20,6 +22,7 @@ gimme nil
 gimme 'nutcracker'
 #-> take this nutcracker
 
+# **************
 # * Duck typed *
 class Baboon
    def poke
@@ -40,6 +43,7 @@ poke Baboon.new
 poke nil
 #-> can't poke this
 
+# **********
 # * Mixins *
 module Ape
    def scratch
