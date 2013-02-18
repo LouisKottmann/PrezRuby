@@ -32,19 +32,25 @@ $target_dir = $options[:target_dir] || File.expand_path('Downloads', ENV['USERPR
 $serials_dir = $options[:serials_dir] || $target_dir
 $serial_regex = /(.*)[S ](\d+)[EX](\d+)/i
 
+class NoWrite
+  def write(*args)
+  end
+end
+$stdout = NoWrite.new if $options[:quiet]
+
 def move_to_serials_subfolder(file, subfolder)
   target_folder = File.join($serials_dir, subfolder)
   FileUtils.mkpath target_folder unless File.directory? target_folder
   FileUtils.move file, File.join(target_folder, File.basename(file))
 end
 
-puts "now organizing serials from #{$target_dir}..." unless $options[:quiet]
+puts "now organizing serials from #{$target_dir}..."
 
 Dir[File.absolute_path("#{$target_dir}/*")].each do |entry| # can be a file or a folder
   entry_name = File.basename(entry, '.*').gsub(/\./, ' ')
   if $serial_regex.match entry_name
     show_name = $1.strip.split(' ').map(&:capitalize).join(' ')
-    puts "#{show_name}: Season #{$2.to_i} Episode #{$3.to_i}" unless $options[:quiet]
+    puts "#{show_name}: Season #{$2.to_i} Episode #{$3.to_i}"
     move_to_serials_subfolder entry, "#{show_name}/Season #{$2.to_i}"
   end
 end
