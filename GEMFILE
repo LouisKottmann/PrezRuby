@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'mechanize'
+gem 'nokogiri'
+gem 'highline'
+gem 'term-ansicolor'
+gem 'ruby_gntp'

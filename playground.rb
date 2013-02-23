@@ -1,18 +1,16 @@
-tds = ['lundi 21', 'Mission matin sdklfslkdjflksdjflkjsdklfjklsdjfklsdjfkljsdf', 'absence aprem']
+require 'nokogiri'
+require 'pp'
 
-day = tds.shift.split(' ')
-morning, afternoon = tds
-weekday   = day[0].ljust(8, ' ')
-day_nr    = day[1].rjust(2, ' ')
+doc = Nokogiri::HTML <<ENDXML
+   <h1 class="title">
+      <select name="ctl00_body_ddlDate" id="ctl00_body_ddlDate" class="liste">
+   	   <option value="01/12/2012 00:00:00">d&#233;cembre 2012</option>
+   	   <option value="01/01/2013 00:00:00">janvier 2013</option>
+   	   <option selected="selected" value="01/02/2013 00:00:00">f&#233;vrier 2013</option>
+      </select>
+   </h1>
+ENDXML
 
-def ellipsify_or_center(str, max_char)
-  return str.center(max_char) if str.size <= max_char
-  str[0..(max_char - 4)] + "..."
-end
-
-puts "************"
-puts "Day: #{day} | Weekday: #{weekday} | Day_Nr: #{day_nr}"
-puts "Morning: #{morning}"
-puts "Afternoon: #{ellipsify_and_center(afternoon, 20)}"
-puts "20 chars: #{ellipsify_and_center(morning, 20)}"
-puts "Ellipsified: #{ellipsify_and_center("this text is 20 char", 20)}"
+pp doc.css('#ctl00_body_ddlDate')
+      .search('option[@selected="selected"]')
+      .text
