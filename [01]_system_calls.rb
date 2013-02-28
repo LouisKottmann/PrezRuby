@@ -4,7 +4,7 @@ output, status = Open3.capture2('ipconfig')
 
 if status.success?
   output.split("\n").select do |line|
-    puts line.strip if line.include? 'IPv4'
+    puts line if line.include? 'IPv4'
   end
 else
   puts status
