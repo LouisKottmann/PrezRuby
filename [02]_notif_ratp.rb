@@ -6,7 +6,7 @@ require 'open-uri'
 
 def send_notif(title, text)
 	GNTP.notify({
-		app_name: 'Baboon',
+		app_name: 'Soat',
 		title: title,
 		text: text
 	})
