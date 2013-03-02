@@ -32,4 +32,6 @@ The 5 numbered scripts are the relevant ones
 
 ## Material availability
 
-The powerpoint and a youtube video (in french, I may do english captions) should be available shortly.
+[Powerpoint](http://fr.slideshare.net/soatexpert/scriptez-en-ruby-by-louis-kottman) (without animations, sadly)
+
+A youtube video (in french, I may do english captions) should be available shortly.
