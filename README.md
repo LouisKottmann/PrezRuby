@@ -34,4 +34,4 @@ The 5 numbered scripts are the relevant ones
 
 [Powerpoint](http://fr.slideshare.net/soatexpert/scriptez-en-ruby-by-louis-kottman) (without animations, sadly)
 
-A youtube video (in french, I may do english captions) should be available shortly.
+[Youtube video](http://www.youtube.com/watch?v=ulvXnsPveN4) (in french, I may do english captions).
